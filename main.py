@@ -116,7 +116,7 @@ st.latex(r"C := \bigcap_{n = 0}^{\infty} C_n")
 state_text = st.text("Ready to Crawl.")
 if st.button("Crawling Instagram"):
     state_text.text("Crawling started..")
-    insta_crawling("jaeu8021", "kvoid2824#")    
+    insta_crawling("leessunj", "Ilsj08282!")    
 
 
 #id = "leessunj"
