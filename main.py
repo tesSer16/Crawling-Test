@@ -17,10 +17,14 @@ def insta_crawling(ID, PW):
     cl = Client()
     cl.login(ID, PW)
 
-    user_id = cl.user_id_from_username("flatfish._.selfish")
+    user_id = cl.user_id_from_username("jaeu8021")
+    state_text.text("Feed searching...")
+
     medias = cl.user_medias(int(user_id), 10)
     folder = "test-folder"
     createDirectory(folder)
+
+    state_text.text("Saving Image....")
     for m in medias:
         try:
             print(photo_download(cl, m.pk, folder))
@@ -58,7 +62,7 @@ st.subheader('Find the filter that best fits your Instagram feed!')
 #                                   type=['jpeg', 'png', 'jpg', 'heic'],
 #                                   label_visibility='visible',
 #                                   accept_multiple_files=True)
-
+st.latex(r"C := \bigcap_{n = 0}^{\infty} c_n")
 
 # crawled = []
 # # Check if the user has uploaded any files
@@ -103,8 +107,12 @@ st.subheader('Find the filter that best fits your Instagram feed!')
 # insta_id = st.text_input("Put your Instagram ID here!")
 # insta_pwd = st.text_input('Put your Instagram password here!')
 # Instagram crawling button
+
+state_text = st.text("Ready to Crawl.")
 if st.button("Crawling Instagram"):
-    insta_crawling("jaeu8021", "kvoid2824#")
+    state_text.text("Crawling started..")
+    insta_crawling("jaeu8021", "kvoid2824#")    
+
 
 #id = "leessunj"
 #pwd = "Ilsj08282!"
