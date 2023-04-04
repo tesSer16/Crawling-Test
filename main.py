@@ -27,11 +27,11 @@ def insta_crawling(ID, PW):
     state_text.text("Saving Image....")
     for m in medias:
         try:
-            print(cl.photo_download(m.pk, folder))
+            p = cl.photo_download(m.pk, folder)
         except AssertionError:
             pass
     
-    state_text.text("Crawling finished! " + folder)
+    state_text.text("Crawling finished! " + os.path.abspath(p))
             
 
 def photo_download(c, pk, folder):
