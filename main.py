@@ -109,14 +109,14 @@ st.latex(r"C := \bigcap_{n = 0}^{\infty} C_n")
 #     # If no files were uploaded, display a message
 #     st.write("Please upload one or more image files.")
 
-# insta_id = st.text_input("Put your Instagram ID here!")
-# insta_pwd = st.text_input('Put your Instagram password here!')
+insta_id = st.text_input("Put your Instagram ID here!")
+insta_pwd = st.text_input('Put your Instagram password here!')
 # Instagram crawling button
 
 state_text = st.text("Ready to Crawl.")
 if st.button("Crawling Instagram"):
     state_text.text("Crawling started..")
-    insta_crawling("leessunj", "Ilsj08282!")    
+    insta_crawling(insta_id, insta_pwd)    
 
 
 #id = "leessunj"
