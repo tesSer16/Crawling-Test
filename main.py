@@ -20,7 +20,8 @@ def insta_crawling(ID, PW):
     user_id = cl.user_id_from_username("jaeu8021")
     state_text.text("Feed searching...")
 
-    medias = cl.user_medias(int(user_id), 9)
+    medias = cl.user_medias(int(user_id), 1)
+
     folder = "test-folder"
     createDirectory(folder)
     state_text.text("Saving Image....")
@@ -46,6 +47,7 @@ def photo_download(c, pk, folder):
     response.raise_for_status()
 
     image = Image.open(io.BytesIO(response.content))
+    print(image)
     image.show()
     with open(p, "wb") as f:
         f.write(response.content)
