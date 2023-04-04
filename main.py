@@ -25,6 +25,7 @@ def insta_crawling(ID, PW):
     folder = "test-folder"
     createDirectory(folder)
     state_text.text("Saving Image....")
+    print(11111)
     for m in medias:
         try:
             print(cl.photo_download(m.pk, folder))
