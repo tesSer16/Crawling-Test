@@ -25,9 +25,11 @@ def insta_crawling(ID, PW):
     state_text.text("Saving Image....")
     for m in medias:
         try:
-            print(photo_download(cl, m.pk, folder))
+            print(cl.photo_download(m.pk, folder))
         except AssertionError:
             pass
+    
+    state_text.text("Crawling finished!")
             
 
 def photo_download(c, pk, folder):
@@ -60,7 +62,7 @@ st.subheader('Find the filter that best fits your Instagram feed!')
 #                                   type=['jpeg', 'png', 'jpg', 'heic'],
 #                                   label_visibility='visible',
 #                                   accept_multiple_files=True)
-st.latex(r"C := \bigcap_{n = 0}^{\infty} c_n")
+st.latex(r"C := \bigcap_{n = 0}^{\infty} C_n")
 
 # crawled = []
 # # Check if the user has uploaded any files
