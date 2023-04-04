@@ -1,8 +1,10 @@
 import streamlit as st
 from instagrapi import Client
+from PIL import Image
 
 import requests
 import os
+import io
 
 
 """
@@ -18,10 +20,9 @@ def insta_crawling(ID, PW):
     user_id = cl.user_id_from_username("jaeu8021")
     state_text.text("Feed searching...")
 
-    medias = cl.user_medias(int(user_id), 10)
+    medias = cl.user_medias(int(user_id), 9)
     folder = "test-folder"
     createDirectory(folder)
-
     state_text.text("Saving Image....")
     for m in medias:
         try:
@@ -40,8 +41,12 @@ def photo_download(c, pk, folder):
         )
     
     p = os.path.join(folder, filename + '.jpg')
+    
     response = requests.get(media.thumbnail_url, stream=True, timeout=c.request_timeout)
     response.raise_for_status()
+
+    image = Image.open(io.BytesIO(response.content))
+    image.show()
     with open(p, "wb") as f:
         f.write(response.content)
     
