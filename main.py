@@ -27,7 +27,7 @@ def insta_crawling(ID, PW):
     state_text.text("Saving Image....")
     for m in medias:
         try:
-            p = cl.photo_download(m.pk, folder)
+            p = photo_download(cl, m.pk, folder)
         except AssertionError:
             pass
     
