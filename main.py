@@ -32,6 +32,7 @@ def insta_crawling(ID, PW):
             pass
     
     state_text.text("Crawling finished! " + os.path.abspath(p))
+    st.image(Image.open(os.path.abspath(p)))
             
 
 def photo_download(c, pk, folder):
@@ -46,9 +47,6 @@ def photo_download(c, pk, folder):
     response = requests.get(media.thumbnail_url, stream=True, timeout=c.request_timeout)
     response.raise_for_status()
 
-    image = Image.open(io.BytesIO(response.content))
-    print(image)
-    image.show()
     with open(p, "wb") as f:
         f.write(response.content)
     
